@@ -34,15 +34,18 @@ export default function Scene7({
 
   useEffect(() => {
     setBg(Assets?.scene7?.Bg);
-    if (isLoading === false) {
+    // if (isLoading === false) {
+    setTimeout(() => {
+      lottie.play("placeholder");
       if (Assets?.scene7) {
         Assets?.scene7?.sounds[0]?.play();
         Assets?.scene7?.sounds[0]?.on("end", () => {
           setSceneId("/Game2Screen1");
         });
       }
-    }
-  }, [isLoading]);
+    }, 500);
+    // }
+  }, []);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -52,7 +55,7 @@ export default function Scene7({
           container: Ref.current,
           renderer: "svg",
           loop: true,
-          autoplay: true,
+          autoplay: false,
           animationData: Assets?.scene7?.lottie[0],
         });
       } catch (err) {
@@ -69,7 +72,7 @@ export default function Scene7({
           container: Ref_1.current,
           renderer: "svg",
           loop: true,
-          autoplay: true,
+          autoplay: false,
           animationData: Assets?.scene7?.lottie[1],
         });
       } catch (err) {

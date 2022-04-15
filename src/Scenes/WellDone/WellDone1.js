@@ -8,7 +8,7 @@ import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
 
-export default function WellDone({ scenename, BG_sound, setCount }) {
+export default function WellDone({ scenename, setCount }) {
   // const Next = useLoadAsset(Scene5Map);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -73,7 +73,6 @@ export default function WellDone({ scenename, BG_sound, setCount }) {
 
   const forward = () => {
     if (playing === false) {
-      BG_sound?.mute(true);
       stop_all_sounds();
       setCount(0);
       setSceneId("/");

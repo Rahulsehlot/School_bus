@@ -27,8 +27,6 @@ export default function Scene5({ scenename }) {
     Assets?.scene5?.sounds?.map((v) => v?.stop());
   };
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     setBg(Assets?.scene5?.Bg);
   }, []);
@@ -104,7 +102,6 @@ export default function Scene5({ scenename }) {
                   Assets?.scene5?.sounds[0]?.play();
                   Assets?.scene5?.sounds[0]?.on("end", () => {
                     setplaying(false);
-
                     setSceneId("/Scene5_1");
                   });
                 }
@@ -117,6 +114,21 @@ export default function Scene5({ scenename }) {
               display: "flex",
               cursor: playing === false ? "pointer" : "",
               display: playBtnHide === 0 ? "block" : "none",
+            }}
+          />
+
+          <Image
+            src={Assets?.scene5?.sprites[4]}
+            alt="txt"
+            id="fadeup"
+            className="skip"
+            onClick={() => {
+              Assets?.scene5?.sounds[0]?.stop();
+
+              setSceneId("/Scene5_1");
+            }}
+            style={{
+              display: playBtnHide === 1 ? "block" : "none",
             }}
           />
         </>

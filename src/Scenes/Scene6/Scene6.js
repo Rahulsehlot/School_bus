@@ -49,6 +49,7 @@ export default function Scene6({
   prevScene,
   hideNxt,
   hide,
+  BG_sound,
 }) {
   const Next = useLoadAsset(preLoad);
 
@@ -70,7 +71,9 @@ export default function Scene6({
       if (Assets?.[assetID]) {
         Assets?.[assetID]?.sounds[0]?.play();
         Assets?.[assetID]?.sounds[0]?.on("end", () => {
-          setSceneId("/" + scenename);
+          setTimeout(() => {
+            setSceneId("/" + scenename);
+          }, 1500);
         });
       }
     }

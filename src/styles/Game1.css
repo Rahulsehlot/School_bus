@@ -426,3 +426,11 @@ animation: tilt-n-move-shaking 0.75s ease-out;
       background-color: rgb(35, 35, 215);
     
     }
+
+    .skip{
+      position: fixed;
+      right: 1%;
+      bottom: 5%;
+      width: 6%;
+      cursor: pointer;   
+    }

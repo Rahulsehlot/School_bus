@@ -201,12 +201,7 @@ function App() {
         />
       </Router>
       <Router sceneId="/WellDone">
-        <WellDone
-          assetID={"WellDone"}
-          soundID={10}
-          BG_sound={BG_sound}
-          setCount={setCount}
-        />
+        <WellDone assetID={"WellDone"} soundID={10} setCount={setCount} />
       </Router>
     </GameContainer>
   );
