@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
@@ -18,10 +18,10 @@ export default function Scene7({
   hide,
 }) {
   const { Loading } = useLoadAsset(Game2Trace1Map);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
   const Ref_1 = useRef(null);
@@ -30,16 +30,19 @@ export default function Scene7({
     Assets?.scene7?.sounds?.map((v) => v?.stop());
   };
   // setBg(Scene3screen1?.Bg);
+  console.log(Assets);
 
   useEffect(() => {
     setBg(Assets?.scene7?.Bg);
-    if (Assets?.scene7) {
-      Assets?.scene7?.sounds[0]?.play();
-      Assets?.scene7?.sounds[0]?.on("end", () => {
-        setSceneId("/Game2Screen1");
-      });
+    if (isLoading === false) {
+      if (Assets?.scene7) {
+        Assets?.scene7?.sounds[0]?.play();
+        Assets?.scene7?.sounds[0]?.on("end", () => {
+          setSceneId("/Game2Screen1");
+        });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -80,6 +83,26 @@ export default function Scene7({
     setSceneId("/Game2Screen1");
   };
 
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    console.log(Assets?.intro?.lottie[1]);
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.scene5?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 1500);
+  }, [isLoading]);
+
   return (
     <Scenes
       Bg={Bg}
@@ -97,7 +120,7 @@ export default function Scene7({
             className="Scene7Chairs"
           />
           <Image
-            src={Assets?.Scene2?.sprites[0]}
+            src={Assets?.scene5?.sprites[4]}
             alt="txt"
             id="fadeup"
             className="next"

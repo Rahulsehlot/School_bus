@@ -3,12 +3,16 @@ import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import "../../styles/Game1.css";
+import lottie from "lottie-web";
+
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
 import Game2Trace1Map from "../Traces/Game2Trace1";
 import Game2Trace4Map from "../Traces/Game2Trace4";
 import Game2Trace3Map from "../Traces/Game2Trace3";
 import Game2Trace2Map from "../Traces/Game2Trace2";
+import Star from "../progress_bar/progress_bar";
+import { counter } from "../progress_bar/progress_bar_map";
 
 const get_ani_map = (val) => {
   switch (val) {
@@ -27,7 +31,14 @@ const get_ani_map = (val) => {
   }
 };
 
-export default function Game2({ preLoad, scenename, assetID, soundID }) {
+export default function Game2({
+  preLoad,
+  scenename,
+  assetID,
+  soundID,
+  setCount,
+  count,
+}) {
   const { Bg, setBg } = useContext(BGContext);
   const Next = useLoadAsset(preLoad);
 
@@ -35,8 +46,7 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
     Assets?.Game2Trace1?.sounds?.map((v) => v?.stop());
   };
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
   const [fadeR, setFadeR] = useState(0);
@@ -44,6 +54,7 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
   const [playing, setplaying] = useState(false);
   const [number, setNumber] = useState(null);
   const [clicked, setClicked] = useState(0);
+  const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
     const element = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
@@ -52,19 +63,22 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
 
   useEffect(() => {
     setBg(Assets?.Scene5screen1?.Bg);
-    if (Assets?.Game2Trace1) {
-      Assets?.[assetID]?.sounds[0]?.play();
-      Assets?.[assetID]?.sounds[0]?.on("end", () => {});
+
+    if (isLoading === false) {
+      if (Assets?.Game2Trace1) {
+        Assets?.[assetID]?.sounds[0]?.play();
+        Assets?.[assetID]?.sounds[0]?.on("end", () => {});
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   const playCorrectSound = () => {
-    if (Assets?.Game1Trace1) {
+    counter(count, setCount);
+    if (Assets?.Game2Trace1) {
       setplaying(true);
-
       Assets?.[assetID]?.sounds[0]?.stop();
-      Assets?.Game1Trace1?.sounds[11]?.play();
-      Assets?.Game1Trace1?.sounds[11]?.on("end", () => {
+      Assets?.Game2Trace1?.sounds[1]?.play();
+      Assets?.Game2Trace1?.sounds[1]?.on("end", () => {
         // setSceneId("/Game1_Helper");
         setplaying(false);
       });
@@ -72,10 +86,10 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
   };
 
   const playWrongSound = () => {
-    if (Assets?.Game1Trace1) {
+    if (Assets?.Game2Trace1) {
       setplaying(true);
-      Assets?.Game1Trace1?.sounds[12]?.play();
-      Assets?.Game1Trace1?.sounds[12]?.on("end", () => {
+      Assets?.Game2Trace1?.sounds[2]?.play();
+      Assets?.Game2Trace1?.sounds[2]?.on("end", () => {
         setplaying(false);
       });
     }
@@ -126,12 +140,43 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
     }, 1000);
   }, []);
 
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    console.log(Assets?.intro?.lottie[1]);
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.scene5?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 1500);
+  }, [isLoading]);
+
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
           {/* Title */}
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
+
           {/* <div className="mouse-move" onMouseMove={handleMouseMove}></div> */}
           <Image
             src={Assets?.Game2Trace1?.sprites[2]}
@@ -180,7 +225,7 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
           />
 
           <Image
-            src={Assets?.Game1Trace1?.sprites[3]}
+            src={Assets?.Game2Trace1?.sprites[3]}
             alt="txt"
             id="fadeup"
             className="RightHighlight"
@@ -190,7 +235,7 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
             }}
           />
           <Image
-            src={Assets?.Game1Trace1?.sprites[4]}
+            src={Assets?.Game2Trace1?.sprites[4]}
             alt="txt"
             id="fadeup"
             className="WrongHighlight"
@@ -199,6 +244,7 @@ export default function Game2({ preLoad, scenename, assetID, soundID }) {
               left: number === 1 ? "51.7%" : "5.8%",
             }}
           />
+          <Star num={count} />
         </>
       }
     />

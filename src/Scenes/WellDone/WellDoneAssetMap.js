@@ -7,13 +7,9 @@ const WellDoneMap = {
 
   Bg: `${imgUrl}Thank_You_BG.svg`,
 
-  sprites: [`${imgUrl}Skip_Btn.svg`, `${imgUrl}replay_Btn.svg`],
+  sprites: [`${imgUrl}Skip_Btn.svg`, `${imgUrl}replay_btn.svg`],
 
-  sounds: [
-    `${soundUrl}wellDone.mp3`,
-    `${soundUrl}wellDone.mp3`,
-    `${soundUrl}Replay_sound.mp3`,
-  ],
+  sounds: [`${soundUrl}wellDone.mp3`, `${soundUrl}Replay_sound.mp3`],
 
   lottie: [
     `${lottieUrl}Boy_Lottie.json`,
