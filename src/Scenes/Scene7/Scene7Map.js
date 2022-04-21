@@ -1,19 +1,19 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Scene7Map = {
   id: "scene7",
 
-  Bg: `${imgUrl}SB_19_School_Bus_Bg_02.svg`,
+  Bg: `${imgUrl}sb_19_school_bus_bg_02.svg`,
 
-  sprites: [`${imgUrl}SB_19_School_Bus_Bg_01_Bus_Set_With_Charactors.svg`],
+  sprites: [`${imgUrl}sb_19_school_bus_bg_01_bus_set_with_charactors.svg`],
 
-  sounds: [`${soundUrl}EP_19_Audio_35.mp3`],
+  sounds: [`${soundUrl}ep_19_audio_35.mp3`],
 
   lottie: [
-    `${lottieUrl}Character_2.json`,
-    `${lottieUrl}Character_with_Lip_Sync.json`,
+    `${lottieUrl}character_2.json`,
+    `${lottieUrl}character_with_lip_sync.json`,
   ],
 };
 

@@ -29,8 +29,6 @@ export default function Scene7({
   const stop_all_sounds = () => {
     Assets?.scene7?.sounds?.map((v) => v?.stop());
   };
-  // setBg(Scene3screen1?.Bg);
-  console.log(Assets);
 
   useEffect(() => {
     setBg(Assets?.scene7?.Bg);
@@ -89,7 +87,6 @@ export default function Scene7({
   const transRef = useRef(null);
 
   useEffect(() => {
-    console.log(Assets?.intro?.lottie[1]);
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",

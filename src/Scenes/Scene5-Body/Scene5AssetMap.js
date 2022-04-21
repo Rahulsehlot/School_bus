@@ -1,27 +1,27 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Scene5Map = {
   id: "scene5",
 
-  Bg: `${imgUrl}SB_19_School_Bus_Intro_Bg.svg`,
+  Bg: `${imgUrl}sb_19_school_bus_intro_bg.svg`,
 
   sprites: [
-    `${imgUrl}SB_19_School_Bus_Intro_BG_Text.svg`,
-    `${imgUrl}Buttons-play.svg`,
+    `${imgUrl}sb_19_school_bus_intro_bg_text.svg`,
+    `${imgUrl}buttons_play.svg`,
     `${imgUrl}backward.svg`,
     `${imgUrl}forward.svg`,
-    `${imgUrl}Skip_Btn.svg`,
+    `${imgUrl}skip_btn.svg`,
     `${imgUrl}progress_bar/progress_bar.svg`,
     `${imgUrl}progress_bar/progress_bar_off.svg`,
     `${imgUrl}progress_bar/progress_bar_on.svg`,
-    `${imgUrl}SB_19_School_Bus_Bg_01_Girl_Charactor_2.svg`,
+    `${imgUrl}sb_19_school_bus_bg_01_girl_charactor_2.svg`,
   ],
 
-  sounds: [`${soundUrl}scene5_Audio.mp3`],
+  sounds: [`${soundUrl}scene5_audio.mp3`],
 
-  lottie: [`${lottieUrl}Boy_Lottie.json`, `${lottieUrl}1transition.json`],
+  lottie: [`${lottieUrl}boy_lottie.json`, `${lottieUrl}1transition.json`],
 };
 
 export default Scene5Map;

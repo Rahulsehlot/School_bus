@@ -1,16 +1,18 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Game2AssetMapScreen1 = {
   id: "Scene5screen2",
 
+  Bg: `${imgUrl}texture_bg_blue.svg`,
+
   sprites: [
-    `${imgUrl}Scene5_Images/2.svg`,
-    `${imgUrl}Scene5_Images/Text_02.svg`,
+    `${imgUrl}scene5_images/2.svg`,
+    `${imgUrl}scene5_images/text_02.svg`,
   ],
 
-  sounds: [`${soundUrl}Scene5_Audio/rules_2.mp3`],
+  sounds: [`${soundUrl}scene5_audio/rules_2.mp3`],
 
   lottie: [],
 };

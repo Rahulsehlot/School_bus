@@ -1,20 +1,22 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Game2Trace1Map = {
   id: "Game2Trace1",
 
+  Bg: `${imgUrl}texture_bg_blue.svg`,
+
   sprites: [
-    `${imgUrl}Game2Images/1_right.svg`,
-    `${imgUrl}Game2Images/1_wrong.svg`,
-    `${imgUrl}Scene5_Images/SB_19_TI_School_Bus_Rules_Text.svg`,
-    `${imgUrl}SB_19_Option_Box_Green_Highlight.svg`,
-    `${imgUrl}SB_19_Option_Box_Red_Highlight.svg`,
+    `${imgUrl}game2images/1_right.svg`,
+    `${imgUrl}game2images/1_wrong.svg`,
+    `${imgUrl}scene5_images/sb_19_ti_school_bus_rules_text.svg`,
+    `${imgUrl}sb_19_option_box_green_highlight.svg`,
+    `${imgUrl}sb_19_option_box_red_highlight.svg`,
   ],
 
   sounds: [
-    `${soundUrl}Game3_Audio/1.mp3`,
+    `${soundUrl}game3_audio/1.mp3`,
     `${soundUrl}great_work.mp3`,
     `${soundUrl}retry.mp3`,
   ],

@@ -47,7 +47,7 @@ export default function WellDone({ scenename, setCount }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Welldone?.lottie[1],
+          animationData: Assets?.Welldone?.lottie[0],
         });
       } catch (err) {
         console.log(err);
@@ -63,7 +63,7 @@ export default function WellDone({ scenename, setCount }) {
           renderer: "svg",
           loop: true,
           autoplay: true,
-          animationData: Assets?.Welldone?.lottie[2],
+          animationData: Assets?.Welldone?.lottie[1],
         });
       } catch (err) {
         console.log(err);

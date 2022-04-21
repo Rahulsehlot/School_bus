@@ -143,7 +143,6 @@ export default function Game2({
   const transRef = useRef(null);
 
   useEffect(() => {
-    console.log(Assets?.intro?.lottie[1]);
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",

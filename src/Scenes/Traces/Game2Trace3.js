@@ -1,16 +1,18 @@
-const imgUrl = "internal/images/";
-const soundUrl = "internal/sounds/";
-const lottieUrl = "internal/lottie/";
+const imgUrl = "ee03_ow_tnb_pl3/images/";
+const soundUrl = "ee03_ow_tnb_pl3/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
 
 const Game2Trace3Map = {
   id: "Game2Trace3",
 
+  Bg: `${imgUrl}texture_bg_blue.svg`,
+
   sprites: [
-    `${imgUrl}Game2Images/3_right.svg`,
-    `${imgUrl}Game2Images/3_wrong.svg`,
+    `${imgUrl}game2images/3_right.svg`,
+    `${imgUrl}game2images/3_wrong.svg`,
   ],
 
-  sounds: [`${soundUrl}Game3_Audio/3.mp3`],
+  sounds: [`${soundUrl}game3_audio/3.mp3`],
 
   lottie: [],
 };

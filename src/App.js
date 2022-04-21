@@ -44,9 +44,9 @@ function App() {
   }, []);
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("internal/sounds/bg_sound.mp3"));
-    seticon1(await LoadImage("internal/images/sound.svg"));
-    seticon2(await LoadImage("internal/images/nosound.svg"));
+    setBG_sound(await AudioPlayer2("ee03_ow_tnb_pl3/sounds/bg_sound.mp3"));
+    seticon1(await LoadImage("ee03_ow_tnb_pl3/images/sound.svg"));
+    seticon2(await LoadImage("ee03_ow_tnb_pl3/images/nosound.svg"));
   };
 
   useEffect(() => {
