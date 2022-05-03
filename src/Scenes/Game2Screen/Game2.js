@@ -188,7 +188,7 @@ export default function Game2({
             className="option1_div"
             onClick={option1}
             style={{
-              left: number === 1 ? "7.5%" : "53.5%",
+              left: number === 1 ? "16.5%" : "53.5%",
               cursor: playing === false ? "pointer" : "",
             }}
           ></div>
@@ -200,7 +200,7 @@ export default function Game2({
             className="Option1"
             // onClick={option1}
             style={{
-              left: number === 1 ? "5.6%" : "51.5%",
+              left: number === 1 ? "14.6%" : "51.5%",
             }}
           />
 
@@ -208,7 +208,7 @@ export default function Game2({
             className="option2_div"
             onClick={option2}
             style={{
-              left: number === 1 ? "53.5%" : "7.5%",
+              left: number === 1 ? "53.5%" : "16.5%",
               cursor: playing === false ? "pointer" : "",
             }}
           ></div>
@@ -219,7 +219,7 @@ export default function Game2({
             className="Option2"
             // onClick={option2}
             style={{
-              left: number === 1 ? "51.5%" : "5.6%",
+              left: number === 1 ? "51.5%" : "14.6%",
             }}
           />
 
@@ -230,7 +230,7 @@ export default function Game2({
             className="RightHighlight"
             style={{
               display: fadeR === 1 ? "block" : "none",
-              left: number === 1 ? "5.8%" : "51.7%",
+              left: number === 1 ? "14.8%" : "51.7%",
             }}
           />
           <Image
@@ -240,7 +240,7 @@ export default function Game2({
             className="WrongHighlight"
             style={{
               display: fadeW === 1 ? "block" : "none",
-              left: number === 1 ? "51.7%" : "5.8%",
+              left: number === 1 ? "51.7%" : "14.8%",
             }}
           />
           <Star num={count} />

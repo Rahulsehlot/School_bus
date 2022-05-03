@@ -3,13 +3,11 @@
   width: 80%;
   height: 20%;
   left: 10%;
-  top: 5%;
-}
+  top: 22%;}
 
-.Option1 {
+  .Option1 {
   position: fixed;
-  width: 43%;
-  /* height: 70%; */
+  width: 34%;
   left: 5%;
   bottom: 0%;
   z-index: 3;
@@ -17,7 +15,7 @@
 
 .Option2 {
   position: fixed;
-  width: 43%;
+  width: 34%;
   left: 51%;
   bottom: 0%;
   z-index: 3;
@@ -25,53 +23,50 @@
 
 .RightHighlight {
   position: fixed;
-  width: 42.5%;
-  height: 78.4%;
+  width: 33.6%;
+  height: 78.8%;
   left: 5.3%;
-  bottom: 2.4%;
-  z-index: 5;
-}
+  bottom: -6.5%;
+  z-index: 5;}
 
 .WrongHighlight {
   position: fixed;
-  width: 42.5%;
-  height: 78.4%;
+  width: 33.6%;
+  height: 78.8%;
   left: 51.3%;
-  bottom: 2.4%;
-  z-index: 5;
-}
+  bottom: -6.5%;
+  z-index: 5;}
 
-.text_lottie_container {
-  position: fixed;
-  right: 15%;
-  top: 3%;
-  width: 100%;
-  height: 100%;
-}
-
-.particles_lottie_container {
-  position: fixed;
-  left: 12%;
-  top: 15%;
-  width: 70%;
-  height: 70%;
-}
-
-.WellDone_lottie_container {
-  position: fixed;
-  right: 15%;
-  bottom: 5%;
-  width: 20%;
-  z-index: 5564;
-}
-
+  .text_lottie_container {
+    position: fixed;
+    right: 10%;
+    top: 3%;
+    width: 100%;
+    height: 100%;}
+  
+  .particles_lottie_container {
+    position: fixed;
+    left: 21%;
+    top: 22%;
+    width: 60%;
+    height: 60%;
+  }
+  
+  .WellDone_lottie_container {
+    position: fixed;
+    right: 15%;
+    bottom: 5%;
+    width: 20%;
+    z-index: 5564;
+  }
+  
 .option1_div {
   position: fixed;
   border-radius: 100pt;
   left: 7.5%;
-  top: 23.7%;
-  width: 39%;
-  height: 69.5%;
+  top: 40.7%;
+  width: 30%;
+  height: 53.5%;
   z-index: 4;
 }
 
@@ -79,11 +74,12 @@
   position: fixed;
   border-radius: 100pt;
   left: 53.5%;
-  top: 23.7%;
-  width: 39%;
-  height: 69.5%;
+  top: 40.4%;
+  width: 30%;
+  height: 53.5%;
   z-index: 4;
 }
+
 
 .Scene4_txt_img {
   position: fixed;
@@ -94,10 +90,9 @@
 
 .scene5Txt {
   position: fixed;
-  left: 0%;
-  top: 0%;
-  width: 100%;
-}
+  left: 10%;
+  top: 21%;
+  width: 80%;}
 
 .Scene7Chairs {
   position: fixed;
@@ -272,18 +267,11 @@ body {
 
 .play_btn {
   position: fixed;
-  top: 61%;
-  left: 62%;
-  width: 10%;
+  top: 65%;
+  left: 61%;
+  width: 8%;
   z-index: 999;}
 
-.next {
-  width: 6%;
-  position: fixed;
-  bottom: 5%;
-  right: 1%;
-  z-index: 798787897;
-}
 
 .ReplayBTN {
   width: 10%;
@@ -292,15 +280,14 @@ body {
   right: 45%;
   z-index: 798787897;
 }
-.mute_btn {
-  width: 5%;
+.mute_btn {    
+  width: 4%;
   position: fixed;
   position: fixed;
   z-index: 101010;
-  bottom: 50%;
-  left: 1%;
-  cursor: pointer;
-}
+  bottom: 38%;
+  left: 12%;
+  cursor: pointer;}
 
 .mute_btn:active {
   border-radius: 50%;
@@ -316,10 +303,11 @@ body {
   width: 23%;
   height: 10%;
   position: fixed;
-  bottom: 85.5%;
-  left: 73%;
-
+  bottom: 62.5%;
+  left: 67%;
 }
+
+
 
 #stars
 {
@@ -337,17 +325,18 @@ animation: tilt-n-move-shaking 0.75s ease-out;
   50% { transform: translate(0px, 0px) rotate(-10deg); }
   100% { transform: translate(0px, 0px) rotate(15deg); }
 }
+
 .wrap_1
 {
-  bottom: 86.8%;
+  bottom: 63.8%;
   display: flex;
-  height: 8%;
+  height: 7.7%;
   position: fixed;
   width: 10.5%;
   justify-content: center;
-  left: 79.2%;
+  left: 73.2%;
   padding: 1px;
-  }
+} 
 
   .Scene2_lottie_container {
     position: fixed;
@@ -359,45 +348,13 @@ animation: tilt-n-move-shaking 0.75s ease-out;
     transform: scaleX(-1);
   }
 
-  
-  .Questions {
-    position: fixed;
-    left: 30%;
-    top: 0%;
-    width: 40%;
-  }
-  
-  .Questions_Text {
-    position: fixed;
-    /* left: 30%; */
-    bottom: 0%;
-    width: 100%;
-    height: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   
   .Questions_Img {
     width: 100%;
     height: 100%;
   }
   
-  .forward {
-    position: fixed;
-    right: 1%;
-    bottom: 5%;
-    width: 6%;
-    cursor: pointer;
-  }
-  
-  .backward {
-    position: fixed;
-    left: 1%;
-    bottom: 5%;
-    width: 6%;
-    cursor: pointer;
-  }
   
   .char
   {
@@ -428,9 +385,9 @@ animation: tilt-n-move-shaking 0.75s ease-out;
     }
 
     .skip{
-      position: fixed;
-      right: 1%;
-      bottom: 5%;
-      width: 6%;
-      cursor: pointer;   
-    }
+        width: 5%;
+        position: fixed;
+        bottom: 2%;
+        right: 12%;
+        z-index: 798787897;
+      cursor: pointer;}

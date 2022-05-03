@@ -1,43 +1,38 @@
 import { useEffect, useState } from "react";
 
 export default function GameContainer({ children }) {
-  const ratio = 1920 / 900;
-  const [width, setwidth] = useState(window.innerWidth);
-  const [height, setheight] = useState(width / ratio);
-
-  const onResize = () => {
-    setwidth(window.innerWidth);
-    setheight(window.innerWidth / ratio);
-  };
+  const [scale, setscale] = useState((window.innerWidth * 0.67) / 1000);
 
   useEffect(() => {
-    window.addEventListener("resize", () => onResize());
+    window.addEventListener("resize", onResize);
 
     return () => {
-      window.removeEventListener("resize", () => onResize());
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
-  useEffect(() => {
-    if (height > window.innerHeight) {
-      setheight(window.innerHeight);
-      setwidth(window.innerHeight * ratio);
-    }
-  }, [height, ratio]);
-
-  const styles = {
-    height: `${height}px`,
-    width: `${width}px`,
-    position: "fixed",
-    left: "50%",
-    top: "50%",
-    transform: "translate(-50%,-50%)",
-    overflow: "hidden",
+  const onResize = () => {
+    const scale = (window.innerWidth * 0.67) / 1000;
+    setscale(scale);
   };
 
   return (
-    <div className="GameContainer" style={styles}>
-      {children}
+    <div className="vendorWrapper">
+      <div
+        className="playHold"
+        style={{
+          position: "absolute",
+          width: "1920px",
+          height: "900px",
+          transformOrigin: "210px 900px",
+          left: "-210px",
+          bottom: "0px",
+          transform: `scale(${scale})`,
+          overflow: "hidden",
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }

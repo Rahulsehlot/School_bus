@@ -1,6 +1,6 @@
-const imgUrl = "ee03_ow_tnb_pl3/images/";
-const soundUrl = "ee03_ow_tnb_pl3/sounds/";
-const lottieUrl = "ee03_ow_tnb_pl3/lottie/";
+const imgUrl = "ee03_ow_tnb_pl2/images/";
+const soundUrl = "ee03_ow_tnb_pl2/sounds/";
+const lottieUrl = "ee03_ow_tnb_pl2/lottie/";
 
 const Scene5AssetMapScreen4 = {
   id: "Scene5screen4",

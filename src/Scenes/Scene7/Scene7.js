@@ -123,7 +123,7 @@ export default function Scene7({
             src={Assets?.scene5?.sprites[4]}
             alt="txt"
             id="fadeup"
-            className="next"
+            className="forward"
             onClick={forward}
             style={{ cursor: "pointer" }}
           />
