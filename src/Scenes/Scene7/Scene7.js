@@ -38,7 +38,7 @@ export default function Scene7({
       if (Assets?.scene7) {
         Assets?.scene7?.sounds[0]?.play();
         Assets?.scene7?.sounds[0]?.on("end", () => {
-          setSceneId("/Game2Screen1");
+          // setSceneId("/Game2Screen1");
         });
       }
     }, 500);

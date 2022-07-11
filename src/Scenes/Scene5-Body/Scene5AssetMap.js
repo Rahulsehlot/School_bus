@@ -5,7 +5,7 @@ const lottieUrl = "ee03_ow_tnb_pl2/lottie/";
 const Scene5Map = {
   id: "scene5",
 
-  Bg: `${imgUrl}sb_19_school_bus_intro_bg.svg`,
+  Bg: `${imgUrl}school_bus_bg/sb_19_school_bus_bg_01_sky.svg`,
 
   sprites: [
     `${imgUrl}sb_19_school_bus_intro_bg_text.svg`,
@@ -16,7 +16,13 @@ const Scene5Map = {
     `${imgUrl}progress_bar/progress_bar.svg`,
     `${imgUrl}progress_bar/progress_bar_off.svg`,
     `${imgUrl}progress_bar/progress_bar_on.svg`,
-    `${imgUrl}sb_19_school_bus_bg_01_girl_charactor_2.svg`,
+    `${imgUrl}school_bus_bg/bus_bg.svg`,
+    `${imgUrl}school_bus_bg/school.svg`,
+    `${imgUrl}school_bus_bg/school_bus.svg`,
+    `${imgUrl}school_bus_bg/char1.svg`,
+    `${imgUrl}school_bus_bg/char2.svg`,
+    `${imgUrl}school_bus_bg/char3.svg`,
+    `${imgUrl}school_bus_bg/char4.svg`,
   ],
 
   sounds: [`${soundUrl}scene5_audio.mp3`],

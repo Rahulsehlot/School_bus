@@ -82,7 +82,49 @@ export default function Scene5({ scenename }) {
             src={Assets?.scene5?.sprites[8]}
             alt="txt"
             id="fadeup"
-            className="char"
+            className="bus_fg"
+          />
+
+          <Image
+            src={Assets?.scene5?.sprites[9]}
+            alt="txt"
+            id="fadeup"
+            className="school"
+          />
+
+          <Image
+            src={Assets?.scene5?.sprites[10]}
+            alt="txt"
+            id="fadeup"
+            className="school_bus"
+          />
+
+          <Image
+            src={Assets?.scene5?.sprites[11]}
+            alt="txt"
+            id="fadeup"
+            className="char1"
+          />
+
+          <Image
+            src={Assets?.scene5?.sprites[12]}
+            alt="txt"
+            id="fadeup"
+            className="char2"
+          />
+
+          <Image
+            src={Assets?.scene5?.sprites[13]}
+            alt="txt"
+            id="fadeup"
+            className="char3"
+          />
+
+          <Image
+            src={Assets?.scene5?.sprites[14]}
+            alt="txt"
+            id="fadeup"
+            className="char4"
           />
 
           <Image
