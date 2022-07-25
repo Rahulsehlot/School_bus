@@ -7,7 +7,10 @@ const Scene7Map = {
 
   Bg: `${imgUrl}sb_19_school_bus_bg_02.svg`,
 
-  sprites: [`${imgUrl}sb_19_school_bus_bg_01_bus_set_with_charactors.svg`],
+  sprites: [
+    `${imgUrl}sb_19_school_bus_bg_01_bus_set_with_charactors.svg`,
+    `${imgUrl}school_bus_fg.svg`,
+  ],
 
   sounds: [`${soundUrl}ep_19_audio_35.mp3`],
 

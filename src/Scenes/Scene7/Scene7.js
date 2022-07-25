@@ -38,7 +38,7 @@ export default function Scene7({
       if (Assets?.scene7) {
         Assets?.scene7?.sounds[0]?.play();
         Assets?.scene7?.sounds[0]?.on("end", () => {
-          // setSceneId("/Game2Screen1");
+          setSceneId("/Game2Screen1");
         });
       }
     }, 500);
@@ -119,6 +119,13 @@ export default function Scene7({
             id="fadeup"
             className="Scene7Chairs"
           />
+          <Image
+            src={Assets?.[assetID]?.sprites[1]}
+            alt="txt"
+            id="fadeup"
+            className="bus_fg_s7"
+          />
+
           <Image
             src={Assets?.scene5?.sprites[4]}
             alt="txt"
