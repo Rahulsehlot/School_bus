@@ -46,8 +46,11 @@ export default function Game2({
     Assets?.Game2Trace1?.sounds?.map((v) => v?.stop());
   };
 
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, LandScape } = useContext(SceneContext);
   const { intro } = Assets;
+  if (document.getElementById('progressBar')) {
+    document.getElementById('progressBar').style.display = "flex"
+  }
 
   const [fadeR, setFadeR] = useState(0);
   const [fadeW, setFadeW] = useState(0);
@@ -67,7 +70,7 @@ export default function Game2({
     if (isLoading === false) {
       if (Assets?.Game2Trace1) {
         Assets?.[assetID]?.sounds[0]?.play();
-        Assets?.[assetID]?.sounds[0]?.on("end", () => {});
+        Assets?.[assetID]?.sounds[0]?.on("end", () => { });
       }
     }
   }, [isLoading]);
@@ -158,7 +161,9 @@ export default function Game2({
       setisLoading(false);
     }, 1500);
   }, [isLoading]);
-
+  if (document.getElementById('progressBarID') && !isLoading && !LandScape) {
+    document.getElementById('progressBarID').style.display = "flex"
+  }
   return (
     <Scenes
       Bg={Bg}
@@ -188,7 +193,7 @@ export default function Game2({
             className="option1_div"
             onClick={option1}
             style={{
-              left: number === 1 ? "16.5%" : "53.5%",
+              left: number === 1 ? "26.5%" : "52.5%",
               cursor: playing === false ? "pointer" : "",
             }}
           ></div>
@@ -200,7 +205,7 @@ export default function Game2({
             className="Option1"
             // onClick={option1}
             style={{
-              left: number === 1 ? "14.6%" : "51.5%",
+              left: number === 1 ? "25.6%" : "51.5%",
             }}
           />
 
@@ -208,7 +213,7 @@ export default function Game2({
             className="option2_div"
             onClick={option2}
             style={{
-              left: number === 1 ? "53.5%" : "16.5%",
+              left: number === 1 ? "52.5%" : "26.5%",
               cursor: playing === false ? "pointer" : "",
             }}
           ></div>
@@ -219,7 +224,7 @@ export default function Game2({
             className="Option2"
             // onClick={option2}
             style={{
-              left: number === 1 ? "51.5%" : "14.6%",
+              left: number === 1 ? "51.5%" : "25.6%",
             }}
           />
 
@@ -230,7 +235,7 @@ export default function Game2({
             className="RightHighlight"
             style={{
               display: fadeR === 1 ? "block" : "none",
-              left: number === 1 ? "14.8%" : "51.7%",
+              left: number === 1 ? "25.8%" : "51.7%",
             }}
           />
           <Image
@@ -240,10 +245,10 @@ export default function Game2({
             className="WrongHighlight"
             style={{
               display: fadeW === 1 ? "block" : "none",
-              left: number === 1 ? "51.7%" : "14.8%",
+              left: number === 1 ? "51.7%" : "25.8%",
             }}
           />
-          <Star num={count} />
+
         </>
       }
     />

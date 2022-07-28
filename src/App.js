@@ -22,13 +22,18 @@ import Game2Trace3Map from "./Scenes/Traces/Game2Trace3";
 import Game2Trace4Map from "./Scenes/Traces/Game2Trace4";
 import { SceneContext } from "./contexts/SceneContext";
 import WellDone from "./Scenes/WellDone/WellDone1";
+import { LoadJson } from "./utils/loadJson";
+import Star from "./Scenes/progress_bar/progress_bar";
 
 function App() {
+  if (document.getElementById('progressBarID')) {
+    document.getElementById('progressBarID').style.display = "none"
+  }
   const Asset = useLoadAsset(Scene5Map);
 
-  const { SceneId, setheight, Ipad, setIpad, LandScape, setLandScape } =
+  const { SceneId, setheight, Ipad, setIpad, LandScape, setLandScape, transition,
+    setTransition, isLoading } =
     useContext(SceneContext);
-
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
   const [BG_sound, setBG_sound] = useState(null);
@@ -46,21 +51,25 @@ function App() {
     setLandScape(window.innerWidth / window.innerHeight < 1.0);
     setIpad(
       window.innerWidth / window.innerHeight >= 1.3 &&
-        window.innerWidth / window.innerHeight <= 1.44
+      window.innerWidth / window.innerHeight <= 1.44
     );
   };
-
+  const loadLottie = async () => {
+    // const data = await LoadJson(`ee02_nt_1to10_srn/lottie/transition_01.json`);
+    const data = await LoadJson(`ee03_ow_tnb_pl2/lottie/1transition.json`);
+    setTransition(data);
+  };
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
     }, 3000);
-
+    loadLottie()
     loadAudio();
 
     window.addEventListener("resize", resizer);
     setIpad(
       window.innerWidth / window.innerHeight >= 1.3 &&
-        window.innerWidth / window.innerHeight <= 1.44
+      window.innerWidth / window.innerHeight <= 1.44
     );
 
     return () => {
@@ -112,27 +121,28 @@ function App() {
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
         Rotate your device
       </h1>
-
+      {!mute && SceneId !== "/" && !isLoading && (
+        <img
+          src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
+          alt=""
+          className="mute_btn"
+          onClick={toggleMute}
+        />
+      )}
+      {mute && !isLoading && (
+        <img
+          src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
+          alt=""
+          className="mute_btn"
+          onClick={toggleMute}
+        />
+      )}{" "}
+      <Star num={count} />
       <div style={{ opacity: LandScape ? 0 : 1 }}>
         <GameContainer>
           <div className="imgTest"></div>
           <div className="imgTest1"></div>
-          {!mute && SceneId !== "/" && (
-            <img
-              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
-              alt=""
-              className="mute_btn"
-              onClick={toggleMute}
-            />
-          )}
-          {mute && (
-            <img
-              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
-              alt=""
-              className="mute_btn"
-              onClick={toggleMute}
-            />
-          )}{" "}
+
           <Router sceneId="/">
             <Scene5 soundID={10} />
           </Router>

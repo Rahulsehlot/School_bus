@@ -13,13 +13,13 @@ export default function Scene5({ scenename }) {
   const Next = useLoadAsset(Scene5AssetMapScreen1);
 
   // const { Bg, Loading } = useLoadAsset(IntroMap);
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets, isLoading } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [playing, setplaying] = useState(false);
   const [autoPLayState, setautoPLayState] = useState(false);
   const [playBtnHide, SetplayBtnHide] = useState(0);
-  const [isLoading, setisLoading] = useState(true);
+  // const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
 
@@ -38,22 +38,22 @@ export default function Scene5({ scenename }) {
 
   const transRef = useRef(null);
 
-  useEffect(() => {
-    if (Assets && transRef.current) {
-      lottie.loadAnimation({
-        name: "boy",
-        container: transRef.current,
-        renderer: "svg",
-        autoplay: true,
-        loop: true,
-        animationData: Assets?.scene5?.lottie[1],
-        speed: 1,
-      });
-    }
-    setTimeout(() => {
-      setisLoading(false);
-    }, 500);
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (Assets && transRef.current) {
+  //     lottie.loadAnimation({
+  //       name: "boy",
+  //       container: transRef.current,
+  //       renderer: "svg",
+  //       autoplay: true,
+  //       loop: true,
+  //       animationData: Assets?.scene5?.lottie[1],
+  //       speed: 1,
+  //     });
+  //   }
+  //   setTimeout(() => {
+  //     setisLoading(false);
+  //   }, 500);
+  // }, [isLoading]);
 
   return (
     <Scenes
@@ -61,7 +61,7 @@ export default function Scene5({ scenename }) {
       sprites={
         <>
           {/* Title */}
-          <div
+          {/* <div
             className="transition_bg"
             style={{ display: isLoading ? "block" : "none" }}
           >
@@ -70,7 +70,7 @@ export default function Scene5({ scenename }) {
               style={{ display: isLoading ? "block" : "none" }}
               ref={transRef}
             ></div>
-          </div>
+          </div> */}
 
           <Image
             src={Assets?.scene5?.sprites[0]}
@@ -165,7 +165,6 @@ export default function Scene5({ scenename }) {
             className="skip"
             onClick={() => {
               Assets?.scene5?.sounds[0]?.stop();
-
               setSceneId("/Scene5_1");
             }}
             style={{

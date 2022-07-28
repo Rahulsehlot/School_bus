@@ -26,7 +26,8 @@
   top: 61%;
   left: 62%;
   width: 10%;
-  z-index: 999;}
+  z-index: 999;
+}
 
 .next {
   width: 6%;
@@ -37,16 +38,14 @@
 }
 
 .ReplayBTN {
-  width: 10%;
+  width: 8%;
   position: fixed;
   bottom: 5%;
   right: 45%;
   z-index: 798787897;
 }
 
-
-
-.progress_bar{
+.progress_bar {
   border-radius: 25pt;
   display: flex;
   align-items: center;
@@ -56,27 +55,29 @@
   position: fixed;
   bottom: 85.5%;
   left: 73%;
-
 }
 
-#stars
-{
-width: 25%;
-/* animation: tilt-n-move-shaking 0.15s infinite; */
+#stars {
+  width: 25%;
+  /* animation: tilt-n-move-shaking 0.15s infinite; */
 }
 
-.star{
-animation: tilt-n-move-shaking 0.75s ease-out;
+.star {
+  animation: tilt-n-move-shaking 0.75s ease-out;
 }
-
 
 @keyframes tilt-n-move-shaking {
-  0% { transform: translate(0px, 0px) rotate(5deg); }
-  50% { transform: translate(0px, 0px) rotate(-10deg); }
-  100% { transform: translate(0px, 0px) rotate(15deg); }
+  0% {
+    transform: translate(0px, 0px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0px, 0px) rotate(-10deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(15deg);
+  }
 }
-.wrap_1
-{
+.wrap_1 {
   bottom: 86.8%;
   display: flex;
   height: 8%;
@@ -85,7 +86,4 @@ animation: tilt-n-move-shaking 0.75s ease-out;
   justify-content: center;
   left: 79.2%;
   padding: 1px;
-  }
-
-
-  
+}

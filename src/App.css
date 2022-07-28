@@ -27,7 +27,16 @@
 .App-link {
   color: #61dafb;
 }
-
+#vision {
+  position: fixed;
+  width: 150%;
+  top: -20%;
+  left: -20%;
+  margin: auto;
+  background-size: auto;
+  background-repeat: repeat-x;
+  animation: pananim 2s;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
