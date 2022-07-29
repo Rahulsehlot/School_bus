@@ -24,6 +24,8 @@ import { SceneContext } from "./contexts/SceneContext";
 import WellDone from "./Scenes/WellDone/WellDone1";
 import { LoadJson } from "./utils/loadJson";
 import Star from "./Scenes/progress_bar/progress_bar";
+import Image from "./utils/elements/Image";
+import { SceneMap } from "./Scenes/SceneMap";
 
 function App() {
   if (document.getElementById('progressBarID')) {
@@ -31,8 +33,8 @@ function App() {
   }
   const Asset = useLoadAsset(Scene5Map);
 
-  const { SceneId, setheight, Ipad, setIpad, LandScape, setLandScape, transition,
-    setTransition, isLoading } =
+  const { SceneId, setHideAllButtons, setheight, Ipad, setIpad, LandScape, setLandScape, transition,
+    setTransition, isLoading, Assets, setSceneId, hidePlayButton, setHidePlayButton, hideAllButtons } =
     useContext(SceneContext);
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
@@ -40,8 +42,9 @@ function App() {
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
   const [playing, setplaying] = useState(false);
+  const [hidePrevButton, setHidePrevButton] = useState(true)
+  const [hideNextButton, setNextPrevButton] = useState(true)
   const [count, setCount] = useState(0);
-
   const resizer = () => {
     if (window.innerWidth <= 1264) {
       setheight("87%");
@@ -82,7 +85,10 @@ function App() {
     seticon1(await LoadImage("ee03_ow_tnb_pl2/images/sound.svg"));
     seticon2(await LoadImage("ee03_ow_tnb_pl2/images/nosound.svg"));
   };
-
+  useEffect(() => {
+    setHidePrevButton(currentItem?.hidePrev)
+    setNextPrevButton(currentItem?.hideNext)
+  }, [SceneId])
   useEffect(() => {
     if (BG_sound !== null && SceneId !== "/" && playing === false) {
       setplaying(true);
@@ -115,7 +121,21 @@ function App() {
         </div>
       </div>
     );
+  const currentItem = SceneMap.find((item) => {
+    return (item.currentSceneName === SceneId)
+  })
+  const stop_all_sounds = () => {
+    Assets?.[currentItem.assetID]?.sounds?.map((v) => v?.stop());
+  };
 
+  const handleForward = () => {
+    stop_all_sounds()
+    setSceneId(currentItem.nextSceneName)
+  }
+  const handleBackward = () => {
+    stop_all_sounds()
+    setSceneId(currentItem.prevSceneName)
+  }
   return (
     <>
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
@@ -127,6 +147,7 @@ function App() {
           alt=""
           className="mute_btn"
           onClick={toggleMute}
+          style={{ visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
         />
       )}
       {mute && !isLoading && (
@@ -135,9 +156,41 @@ function App() {
           alt=""
           className="mute_btn"
           onClick={toggleMute}
+          style={{ visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
         />
       )}{" "}
+      <Image
+        src={Assets?.scene5?.sprites[2]}
+        alt="txt"
+        id="fadeup"
+        className="backwardButton"
+        onClick={handleBackward}
+        style={{ display: hidePrevButton ? "none" : "block", visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
+      />
+      <Image
+        src={Assets?.scene5?.sprites[3]}
+        alt="txt"
+        id="fadeup"
+        className="forwardButton"
+        onClick={handleForward}
+        style={{ display: hideNextButton ? "none" : "block", visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
+      />
       <Star num={count} />
+      <Image
+        src={Assets?.scene5?.sprites[4]}
+        alt="txt"
+        id="fadeup"
+        className="forwardButton"
+        onClick={() => {
+          Assets?.scene5?.sounds[0]?.stop();
+          setHidePlayButton(false)
+          setSceneId("/Scene5_1");
+        }}
+        style={{
+          display: hidePlayButton ? "block" : "none",
+          visibility: hideAllButtons ? 'hidden' : 'visible'
+        }}
+      />
       <div style={{ opacity: LandScape ? 0 : 1 }}>
         <GameContainer>
           <div className="imgTest"></div>

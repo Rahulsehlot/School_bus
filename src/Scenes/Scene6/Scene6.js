@@ -53,7 +53,7 @@ export default function Scene6({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
@@ -92,6 +92,7 @@ export default function Scene6({
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
@@ -141,7 +142,7 @@ export default function Scene6({
             />
           </div>
 
-          <Image
+          {/* <Image
             src={Assets?.scene5?.sprites[2]}
             alt="txt"
             id="fadeup"
@@ -156,7 +157,7 @@ export default function Scene6({
             className="forward"
             onClick={forward}
             style={{ display: hideNxt === 1 ? "none" : "block" }}
-          />
+          /> */}
         </>
       }
     />

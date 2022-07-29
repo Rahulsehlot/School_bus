@@ -67,3 +67,24 @@
   right: 1%;
   z-index: 798787897;
 }
+.backwardButton {
+  position: fixed;
+  height: 12%;
+  bottom: 1%;
+  z-index: 1;
+  left: 1%;
+}
+.forwardButton {
+  position: fixed;
+  height: 12%;
+  bottom: 1%;
+  z-index: 1;
+  right: 1%;
+}
+.skipButton {
+  position: fixed;
+  height: 12%;
+  bottom: 1%;
+  z-index: 1;
+  right: 1%;
+}

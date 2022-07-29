@@ -46,7 +46,7 @@ export default function Game2({
     Assets?.Game2Trace1?.sounds?.map((v) => v?.stop());
   };
 
-  const { SceneId, setSceneId, Assets, setAssets, LandScape } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets, LandScape } = useContext(SceneContext);
   const { intro } = Assets;
   if (document.getElementById('progressBar')) {
     document.getElementById('progressBar').style.display = "flex"
@@ -146,6 +146,7 @@ export default function Game2({
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",

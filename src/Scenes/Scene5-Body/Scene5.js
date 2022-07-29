@@ -13,7 +13,7 @@ export default function Scene5({ scenename }) {
   const Next = useLoadAsset(Scene5AssetMapScreen1);
 
   // const { Bg, Loading } = useLoadAsset(IntroMap);
-  const { SceneId, setSceneId, Assets, setAssets, isLoading } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets, isLoading, setisLoading, setHidePlayButton } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [playing, setplaying] = useState(false);
@@ -38,22 +38,23 @@ export default function Scene5({ scenename }) {
 
   const transRef = useRef(null);
 
-  // useEffect(() => {
-  //   if (Assets && transRef.current) {
-  //     lottie.loadAnimation({
-  //       name: "boy",
-  //       container: transRef.current,
-  //       renderer: "svg",
-  //       autoplay: true,
-  //       loop: true,
-  //       animationData: Assets?.scene5?.lottie[1],
-  //       speed: 1,
-  //     });
-  //   }
-  //   setTimeout(() => {
-  //     setisLoading(false);
-  //   }, 500);
-  // }, [isLoading]);
+  useEffect(() => {
+    setHideAllButtons(isLoading)
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.scene5?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, [isLoading]);
 
   return (
     <Scenes
@@ -138,7 +139,7 @@ export default function Scene5({ scenename }) {
               if (playing === false) {
                 setautoPLayState(true);
                 setplaying(true);
-
+                setHidePlayButton(true)
                 if (Assets?.scene5) {
                   Assets?.scene5?.sounds[0]?.play();
                   Assets?.scene5?.sounds[0]?.on("end", () => {
@@ -158,7 +159,7 @@ export default function Scene5({ scenename }) {
             }}
           />
 
-          <Image
+          {/* <Image
             src={Assets?.scene5?.sprites[4]}
             alt="txt"
             id="fadeup"
@@ -170,7 +171,7 @@ export default function Scene5({ scenename }) {
             style={{
               display: playBtnHide === 1 ? "block" : "none",
             }}
-          />
+          /> */}
         </>
       }
     />

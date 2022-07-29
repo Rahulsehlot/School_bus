@@ -11,7 +11,7 @@ export default function useLoadAsset(Map) {
   // const [mainAudio, setmainAudio] = useState({})
   const { Bg, setBg } = useContext(BGContext);
   const { Sound, setSound } = useContext(SoundContext);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
+  const { SceneId, setHideAllButtons, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
 
   useEffect(() => {

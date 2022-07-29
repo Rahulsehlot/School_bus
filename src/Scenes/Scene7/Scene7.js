@@ -18,7 +18,7 @@ export default function Scene7({
   hide,
 }) {
   const { Loading } = useLoadAsset(Game2Trace1Map);
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
@@ -87,6 +87,7 @@ export default function Scene7({
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
@@ -126,14 +127,14 @@ export default function Scene7({
             className="bus_fg_s7"
           />
 
-          <Image
+          {/* <Image
             src={Assets?.scene5?.sprites[4]}
             alt="txt"
             id="fadeup"
             className="forward"
             onClick={forward}
             style={{ cursor: "pointer" }}
-          />
+          /> */}
         </>
       }
     />
