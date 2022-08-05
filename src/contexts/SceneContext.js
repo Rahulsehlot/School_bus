@@ -14,6 +14,7 @@ export default function SceneContextProvider({ children }) {
   const [LandScape, setLandScape] = useState(false);
   const [transition, setTransition] = useState(null);
   const [hidePlayButton, setHidePlayButton] = useState(false);
+  const [hideSkip, setHideSkip] = useState(false)
   const [hideAllButtons, setHideAllButtons] = useState(true)
   // loading part
   useEffect(() => {
@@ -44,7 +45,9 @@ export default function SceneContextProvider({ children }) {
         hidePlayButton,
         setHidePlayButton,
         hideAllButtons,
-        setHideAllButtons
+        setHideAllButtons,
+        hideSkip, setHideSkip
+
       }}
     >
       {children}

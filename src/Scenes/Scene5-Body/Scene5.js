@@ -13,7 +13,7 @@ export default function Scene5({ scenename }) {
   const Next = useLoadAsset(Scene5AssetMapScreen1);
 
   // const { Bg, Loading } = useLoadAsset(IntroMap);
-  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets, isLoading, setisLoading, setHidePlayButton } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets, isLoading, setisLoading, setHidePlayButton, setHideSkip } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [playing, setplaying] = useState(false);
@@ -144,6 +144,7 @@ export default function Scene5({ scenename }) {
                   Assets?.scene5?.sounds[0]?.play();
                   Assets?.scene5?.sounds[0]?.on("end", () => {
                     setplaying(false);
+                    setHideSkip(true)
                     setSceneId("/Scene5_1");
                   });
                 }

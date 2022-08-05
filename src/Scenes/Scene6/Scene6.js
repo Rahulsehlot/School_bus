@@ -53,7 +53,7 @@ export default function Scene6({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets, Ipad } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
@@ -108,7 +108,7 @@ export default function Scene6({
       setisLoading(false);
     }, 1500);
   }, [isLoading]);
-
+  console.log(Ipad)
   return (
     <Scenes
       Bg={Bg}
@@ -132,8 +132,7 @@ export default function Scene6({
             id="fadeup"
             className="Questions"
           />
-          <div className="Questions_text__container">
-
+          <div className="Questions_text__container" style={{ height: Ipad ? '16%' : '20%' }}>
             <Image
               src={Assets?.[assetID]?.sprites[1]}
               alt="txt"

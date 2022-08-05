@@ -34,7 +34,7 @@ function App() {
   const Asset = useLoadAsset(Scene5Map);
 
   const { SceneId, setHideAllButtons, setheight, Ipad, setIpad, LandScape, setLandScape, transition,
-    setTransition, isLoading, Assets, setSceneId, hidePlayButton, setHidePlayButton, hideAllButtons } =
+    setTransition, isLoading, Assets, setSceneId, hidePlayButton, setHidePlayButton, hideAllButtons, hideSkip, setHideSkip } =
     useContext(SceneContext);
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
@@ -136,6 +136,8 @@ function App() {
     stop_all_sounds()
     setSceneId(currentItem.prevSceneName)
   }
+  console.log(SceneId)
+
   return (
     <>
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
@@ -184,11 +186,12 @@ function App() {
         onClick={() => {
           Assets?.scene5?.sounds[0]?.stop();
           setHidePlayButton(false)
+          setHideSkip(true)
           setSceneId("/Scene5_1");
         }}
         style={{
           display: hidePlayButton ? "block" : "none",
-          visibility: hideAllButtons ? 'hidden' : 'visible'
+          visibility: hideAllButtons || LandScape || hideSkip ? 'hidden' : 'visible'
         }}
       />
       <div style={{ opacity: LandScape ? 0 : 1 }}>
